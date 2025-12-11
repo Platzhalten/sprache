@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>PyScript 2025.11.2</title>
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
+        <link rel="stylesheet" href="test.css" />
+        <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
+    </head>
+    <body>
+        <div class="word">
+            <p class="word">Übersetzte folgendes Wort ins Russische:</p>
+            <p class="word" id="test">LOADING</p>
+        </div>
+
+        <button id="finished_buttom">Lösung Aufdecken</button>
+        <p class="reveal">Die Richtige Lösung ist</p>
+        <p class="reveal" id="reveal">_______</p>
+        <br>
+        <button class="next" id="correct_buttom">Richtig Übersetzt</button>
+        <button class="next" id="wrong_buttom">Falsch Übersetzt</button>
+        <button class="next" id="next_buttom">Nächstes Wort</button>
+
+
+        <div class="total">
+            Du hast
+            <div class="total-number" id="finished_so_far">0</div>
+            von
+            <div class="total-number" id="finished_number">LOADING</div>
+            Wörter übersetzt, davon
+            <div class="total-number" id="correct_so_far">0</div>
+            Richtig
+            </div>
+        <script type="py" src="main.py" config="pyscript.json"></script>
+    </body>
+</html>

@@ -2,26 +2,86 @@ import json
 import os
 import random
 
-word_book = os.path.join(os.path.curdir, "word_book/de_ru/book.json")
+from pyscript import display, when
 
-with open(word_book, "r") as f:
-    words = json.load(f)["test2"]
 
-words_key = list(words.keys())
+def setup():
+    word_book = os.path.join(os.path.curdir, "word_book/de_ru/book.json")
 
-random.shuffle(words_key)
+    with open(word_book, "r") as f:
+        words = json.load(f)["test4"]
 
-print("Infinite loop, escape with: Ctrl + C")
-for i in words_key:
-    #selected_word = random.choice(list(words.keys()))
+    word_key = list(words.keys())
+    random.shuffle(word_key)
 
-    print(f"Was ist die Korrekte Schreibweise von {i}")
-    input("Denkst du hast es fertig? (Drücke Enter)")
+    print(word_key)
 
-    if input(f"\nDie Korrekte Version wäre {words[i]} hast du es richtig[y/N]").strip().lower() == "y":
-        print("GUT GEMACHT")
+    return words, word_key
 
-    else:
-        print("SCHADE")
 
-    print("\n")
+class Status:
+    def __init__(self):
+        self.correct_translation = 0
+        self.master_dict, self.master_list = setup()
+        self.completed_list: list[str] = self.master_list.copy()
+        self.current_russian_word = self.master_dict.get(self.completed_list[0], "ERROR")
+
+    def update_russian_word(self):
+        self.current_russian_word = self.master_dict.get(self.completed_list[0], "ERROR")
+
+
+
+status = Status()
+
+def update_word(word: str, target="test") -> None:
+    display(word, target=target, append=False)
+
+def CLI() -> None:
+
+    print("Infinite loop, escape with: Ctrl + C")
+    for i in status.master_list:
+        #selected_word = random.choice(list(words.keys()))
+
+        print(f"Was ist die Korrekte Schreibweise von {i}")
+        input("Denkst du hast es fertig? (Drücke Enter)")
+
+        if input(f"\nDie Korrekte Version wäre {status.master_dict[i]} hast du es richtig[y/N]").strip().lower() == "y":
+            print("GUT GEMACHT")
+
+        else:
+            print("SCHADE")
+
+        print("\n")
+
+
+def website_setup():
+    update_word(status.completed_list[0])
+    update_word("0", target="finished_so_far")
+    update_word(str(len(status.master_list)), target="finished_number")
+    status.completed_list.remove(status.completed_list[0])
+
+
+@when("click", "#next_buttom")
+@when("click", "#wrong_buttom")
+def next_button():
+    update_word(str(len(status.master_list) - (len(status.completed_list))), target="finished_so_far")
+    update_word("_______", target="reveal")
+
+    if not status.completed_list:
+        update_word("GLÜCKWUNSCH, DU HAST ALLE WÖRTER DURCH,\nLade die Seite neu um weiter zu machen")
+        return
+    update_word(status.completed_list[0])
+    status.update_russian_word()
+    status.completed_list.remove(status.completed_list[0])
+
+@when("click", "#correct_buttom")
+def correct_translation():
+    status.correct_translation += 1
+    update_word(str(status.correct_translation), target="correct_so_far")
+    next_button()
+
+
+@when("click", "#finished_buttom")
+def reveal_solution():
+    update_word(status.current_russian_word, target="reveal")
+website_setup()

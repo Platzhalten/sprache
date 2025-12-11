@@ -1,0 +1,6 @@
+{
+  "files": {
+    "./word_book/de_ru/book.json": "./word_book/de_ru/book.json",
+    "./main.py": "./main.py"
+  }
+}
