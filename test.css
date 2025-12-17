@@ -29,3 +29,8 @@ button.next {
 div.total-number {
     font-size: var(--bigger-text);
 }
+
+button.github {
+    display: inline-block;
+    float: right;
+}

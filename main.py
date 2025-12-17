@@ -2,7 +2,7 @@ import json
 import os
 import random
 
-from pyscript import display, when
+from pyscript import display, when, window
 
 
 def setup():
@@ -37,7 +37,6 @@ def update_word(word: str, target="test") -> None:
     display(word, target=target, append=False)
 
 def CLI() -> None:
-
     print("Infinite loop, escape with: Ctrl + C")
     for i in status.master_list:
         #selected_word = random.choice(list(words.keys()))
@@ -79,6 +78,10 @@ def correct_translation():
     status.correct_translation += 1
     update_word(str(status.correct_translation), target="correct_so_far")
     next_button()
+
+@when("click", "#go_to_repo")
+def change_url_to_github_repo():
+    window.location.href = "https://github.com/Platzhalten/sprache"
 
 
 @when("click", "#finished_buttom")
