@@ -6,23 +6,26 @@
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <title>PyScript 2025.11.2</title>
         <link rel="stylesheet" href="https://pyscript.net/releases/2025.11.2/core.css" />
-        <link rel="stylesheet" href="test.css" />
+        <link rel="stylesheet" href="style.css" />
         <script type="module" src="https://pyscript.net/releases/2025.11.2/core.js"></script>
     </head>
     <body>
         <button class="github" id="go_to_repo">Zum GitHub Repo</button>
-        <div class="word">
-            <p class="word">Übersetzte folgendes Wort ins Russische:</p>
-            <p class="word" id="test">LOADING</p>
-        </div>
+        <div class="box">
+            <div class="word">
+                <p class="word">Übersetzte folgendes Wort ins Russische:</p>
+                <p class="word" id="test">LOADING</p>
+            </div>
 
-        <button id="finished_buttom">Lösung Aufdecken</button>
-        <p class="reveal">Die Richtige Lösung ist</p>
-        <p class="reveal" id="reveal">_______</p>
-        <br>
-        <button class="next" id="correct_buttom">Richtig Übersetzt</button>
-        <button class="next" id="wrong_buttom">Falsch Übersetzt</button>
-        <button class="next" id="next_buttom">Nächstes Wort</button>
+            <label>
+                <input type="text" id="user_input" class="user_input" />
+            </label>
+            <p class="reveal">Die Richtige Lösung ist</p>
+            <p class="reveal" id="reveal">_______</p>
+            <p class="correct" id="correct"></p>
+            <br>
+            <button class="next" id="finished_buttom">Lösung Aufdecken</button>
+            <button class="next" id="next_buttom">Nächstes Wort</button>
 
 
         <div class="total">
@@ -33,7 +36,44 @@
             Wörter übersetzt, davon
             <div class="total-number" id="correct_so_far">0</div>
             Richtig
-            </div>
+        </div>
+        <div id="keyboard">
+<button class="keyboard_row_1" id="keyboard_a">а</button>
+<button class="keyboard_row_1" id="keyboard_b">б</button>
+<button class="keyboard_row_1" id="keyboard_v">в</button>
+<button class="keyboard_row_1" id="keyboard_g">г</button>
+<button class="keyboard_row_1" id="keyboard_d">д</button>
+<button class="keyboard_row_1" id="keyboard_je">е</button>
+<button class="keyboard_row_1" id="keyboard_jo">ё</button>
+<button class="keyboard_row_1" id="keyboard_sh">ж</button>
+<button class="keyboard_row_1" id="keyboard_ss">з</button>
+<button class="keyboard_row_1" id="keyboard_i">и</button>
+<button class="keyboard_row_1" id="keyboard_short_i">й</button>
+<button class="keyboard_row_2" id="keyboard_k">к</button>
+<button class="keyboard_row_2" id="keyboard_l">л</button>
+<button class="keyboard_row_2" id="keyboard_m">м</button>
+<button class="keyboard_row_2" id="keyboard_n">н</button>
+<button class="keyboard_row_2" id="keyboard_o">о</button>
+<button class="keyboard_row_2" id="keyboard_p">п</button>
+<button class="keyboard_row_2" id="keyboard_r">р</button>
+<button class="keyboard_row_2" id="keyboard_s">с</button>
+<button class="keyboard_row_2" id="keyboard_t">т</button>
+<button class="keyboard_row_2" id="keyboard_u">у</button>
+<button class="keyboard_row_2" id="keyboard_f">ф</button>
+<button class="keyboard_row_3" id="keyboard_ch">х</button>
+<button class="keyboard_row_3" id="keyboard_z">ц</button>
+<button class="keyboard_row_3" id="keyboard_ts">ч</button>
+<button class="keyboard_row_3" id="keyboard_sch">ш</button>
+<button class="keyboard_row_3" id="keyboard_schtsch">щ</button>
+<button class="keyboard_row_3" id="keyboard_soft_b">ь</button>
+<button class="keyboard_row_3" id="keyboard_ui">ы</button>
+<button class="keyboard_row_3" id="keyboard_hard_b">ъ</button>
+<button class="keyboard_row_3" id="keyboard_e">э</button>
+<button class="keyboard_row_3" id="keyboard_ju">ю</button>
+<button class="keyboard_row_3" id="keyboard_ja">я</button>
+
+        </div>
+        </div>
         <script type="py" src="main.py" config="pyscript.json"></script>
     </body>
 </html>

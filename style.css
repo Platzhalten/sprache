@@ -1,0 +1,65 @@
+:root {
+    --bigger-text: 120%;
+}
+
+button {
+    display: block;
+    font-size: 2vw;
+}
+
+div.total div.total-number {
+    display: inline-block;
+    padding: 4px;
+}
+
+div.box {
+    font: 12px Arial;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    font-size: 2.6vw;
+}
+
+button.reveal_button {
+    margin: auto;
+}
+
+p.reveal {
+    display: inline;
+}
+
+button.next {
+    display: inline;
+}
+
+#test {
+    font-size: var(--bigger-text)
+}
+
+div.total-number {
+    font-size: var(--bigger-text);
+}
+
+button.github {
+    display: inline-block;
+    float: right;
+}
+
+#keyboard {
+    display: inline-grid;
+    grid-template-columns: 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw 5vw;
+    grid-template-rows: 5vw 5vw 5vw;
+    padding: 10px;
+    gap: 5px;
+}
+
+button.keyboard_row_1 button.keyboard_row_2 button.keyboard_row_3 {
+    display: grid;
+    column-gap: 5%;
+}
+
+input.user_input {
+    display: block;
+    margin: auto;
+    font-size: 2vw;
+}
