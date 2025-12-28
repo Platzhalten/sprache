@@ -91,6 +91,7 @@ def reveal_solution():
     if user_input == status.current_russian_word.lower():
         update_word("Glückwunsch, du hast es richtig übersetzt", target="correct")
         status.correct_translation += 1
+        update_word(status.correct_translation, target="correct_so_far")
     else:
         update_word("Schade du hast es falsch übersetzt", target="correct")
 
