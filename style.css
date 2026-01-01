@@ -47,7 +47,7 @@ button.github {
 
 #keyboard {
     display: inline-grid;
-    grid-template-columns: 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw 3vw;
+    grid-template-columns: repeat(11, 3vw);;
     grid-template-rows: 3vw 3vw 3vw;
     padding: 10px;
     gap: 5px;
@@ -56,6 +56,16 @@ button.github {
 button.keyboard_row_1 button.keyboard_row_2 button.keyboard_row_3 {
     display: grid;
     column-gap: 5%;
+}
+
+button.space {
+    grid-column-start: 1;
+    grid-column-end: 9;
+}
+
+button.delete {
+    grid-column-start: 9;
+    grid-column-end: 12;
 }
 
 input.user_input {

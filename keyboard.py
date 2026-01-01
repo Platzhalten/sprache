@@ -5,6 +5,9 @@ def update_input(letter):
     current_text = document.getElementById("user_input").value
     document.getElementById("user_input").value = f"{current_text}{letter}"
 
+def delete_last_input():
+    current_text = document.getElementById("user_input").value
+    document.getElementById("user_input").value = current_text[:-1]
 
 class Keyboard:
     def __init__(self, language_code: str = "en"):
@@ -145,3 +148,11 @@ class Russian(Keyboard):
     @when("click", "#keyboard_ja")
     def ja(self):
         update_input("я")
+
+    @when("click", "#keyboard_space")
+    def space(self):
+        update_input(" ")
+
+    @when("click", "#keyboard_del")
+    def delete(self):
+        delete_last_input()

@@ -78,7 +78,7 @@ def next_button():
 
 @when("click", "#go_to_repo")
 def change_url_to_github_repo():
-    window.location.href = "https://github.com/Platzhalten/sprache"
+    window.open("https://github.com/Platzhalten/sprache")
 
 
 @when("click", "#finished_buttom")
