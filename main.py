@@ -12,7 +12,7 @@ def setup():
     word_book = os.path.join(os.path.curdir, "word_book/de_ru/book.json")
 
     with open(word_book, "r") as f:
-        words = json.load(f)["test4"]
+        words = json.load(f)["S134-S136"]
 
     word_key = list(words.keys())
     random.shuffle(word_key)
